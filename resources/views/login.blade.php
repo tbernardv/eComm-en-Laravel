@@ -1,7 +1,7 @@
 <!-- Incluyendo el master page en la pagina login: Quiere decir que la pagina login se puede incluir en el master page -->
 @extends('master')
 
-@section('loginContent')
+@section('content')
 <div class="container mt-5 pd-3">
     <div class="row">
         <div class="col-sm-4"></div>

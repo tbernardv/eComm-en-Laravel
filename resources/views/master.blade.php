@@ -10,8 +10,8 @@
 <body>
     <!-- Incluyendo el header general en el master page -->    
     {{View::make('header')}}
-    <!-- Incluyendo la seccion loginContent de la pagina login -->
-    @yield('loginContent')
+    <!-- Incluyendo la seccion content de la pagina login -->
+    @yield('content')
     <!-- Incluyendo el footer general en la vista del master page -->
     {{View::make('footer')}}
 
@@ -23,4 +23,15 @@
         });
     </script>
 </body>
+<style>
+    img.slider-img{
+        height: 600px !important
+    }
+    .custom-product{
+        height: 700px
+    }
+    .slider-text{
+        background-color: #35443585 !important;
+    }
+</style>
 </html>
