@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //Agregamos por el error de posible compatibilidad de versiones
-        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(255);
     }
 }
