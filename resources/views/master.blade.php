@@ -10,7 +10,7 @@
 <body>
     <!-- Incluyendo el header general en el master page -->    
     {{View::make('header')}}
-    <!-- Incluyendo la seccion content de la pagina login -->
+    <!-- Incluyendo la seccion loginContent de la pagina login -->
     @yield('loginContent')
     <!-- Incluyendo el footer general en la vista del master page -->
     {{View::make('footer')}}

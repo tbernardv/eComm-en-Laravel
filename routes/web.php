@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//Importando los controladores que vamos creando
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+//Rutas
+Route::get('/login', function () {
     return view('login');
 });
+
+Route::post("/login", [UserController::class, 'login']);
+Route::get("/", [ProductController::class, 'index']);
