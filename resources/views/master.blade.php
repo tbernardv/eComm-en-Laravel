@@ -40,5 +40,14 @@
         float: left;
         width: 20%;
     }
+    .trending-wrapper{
+        margin-bottom: 200px !important;
+    }
+    .detail-img{
+        max-height: 200px;
+    }
+    .search-box{
+        width:600px;
+    }
 </style>
 </html>
