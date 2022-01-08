@@ -1,6 +1,5 @@
 <!-- Incluyendo el master page en la pagina products -->
 @extends('master')
-
 @section('content')
 <div class="mt-5 mb-4 pt-4 custom-product">
     <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -28,5 +27,16 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div><!-- End carousel -->
+</div>
+<div class="container trending-wrapper">
+    <h3 class="mb-3">Trending Products</h3>
+    @foreach($products as $item)
+    <div class="trending-item">
+        <img class="trending-image" src="{{$item['gallery']}}" alt="">
+        <div class="">
+            <h4>{{$item['name']}}</h4>
+        </div>
     </div>
+    @endforeach
 </div>
