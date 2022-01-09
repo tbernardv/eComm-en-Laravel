@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 //Importamos los modelos asociados al controlador producto
 use App\Models\Product;
 use App\Models\Cart;
+//Importando Session
+use Session;
 
 class ProductController extends Controller
 {
@@ -45,6 +47,16 @@ class ProductController extends Controller
             return redirect('/');
         } else{
             return redirect("/login");
+        }
+    }
+
+    //Cart items
+    static function cartItem(){
+        if(Session::get('user')['id']){
+            $user_id = Session::get('user')['id'];
+            return Cart::where('user_id', $user_id)->count();
+        } else{
+            return redirect('/login');
         }
     }
 }
