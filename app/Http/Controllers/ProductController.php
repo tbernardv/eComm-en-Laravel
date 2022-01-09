@@ -66,13 +66,19 @@ class ProductController extends Controller
     function carList(){
         //echo "Hello! GOD BLESS!!!";
         $userId = Session::get('user')['id'];
-        
+
         $products_list = DB::table('cart')
         ->join('products','cart.product_id','=', 'products.id')
         ->where('cart.user_id', $userId)
-        ->select('products.*')
+        ->select('products.*', 'cart.id as cart_id')
         ->get();
 
         return view('carlist', ['products' => $products_list]);
+    }
+
+    //Eliminar elementos del carrito
+    function removeCartItem($id){
+        Cart::destroy($id);
+        return redirect('/carlist');
     }
 }
