@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Cart;
 //Importando Session
 use Session;
+//Importando libreria DB
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -50,7 +52,7 @@ class ProductController extends Controller
         }
     }
 
-    //Cart items
+    //Cart number of items
     static function cartItem(){
         if(Session::get('user')['id']){
             $user_id = Session::get('user')['id'];
@@ -58,5 +60,19 @@ class ProductController extends Controller
         } else{
             return redirect('/login');
         }
+    }
+
+    //Cart listing
+    function carList(){
+        //echo "Hello! GOD BLESS!!!";
+        $userId = Session::get('user')['id'];
+        
+        $products_list = DB::table('cart')
+        ->join('products','cart.product_id','=', 'products.id')
+        ->where('cart.user_id', $userId)
+        ->select('products.*')
+        ->get();
+
+        return view('carlist', ['products' => $products_list]);
     }
 }

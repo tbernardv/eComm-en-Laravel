@@ -49,5 +49,10 @@
     .search-box{
         width:600px;
     }
+    .car-list-divider{
+        border-bottom: 1px solid #ccc;
+        margin: 20px;
+        padding: 20px;
+    }
 </style>
 </html>

@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart({{$total}})</a>
+                        <a class="nav-link" href="/carlist">Cart({{$total}})</a>
                     </li>
                     @if(Session::has('user'))    
                     <li class="nav-item dropdown me-2">
