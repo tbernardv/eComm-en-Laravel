@@ -5,16 +5,16 @@
 <div class="container mt-5 pd-3">
     <div class="row">
         <div class="col-sm-4"></div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 pt-5">
             <form action="login" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" id="txtemail" name="txtemail" class="form-control" aria-describedby="emailHelp">
+                    <input type="email" id="txtemail" name="txtemail" class="form-control" placeholder="email">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" id="txtpassword" name="txtpassword" class="form-control">
+                    <input type="password" id="txtpassword" name="txtpassword" class="form-control" placeholder="password">
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
