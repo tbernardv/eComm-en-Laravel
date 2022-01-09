@@ -20,6 +20,11 @@ use App\Http\Controllers\ProductController;
 Route::get('/login', function () {
     return view('login');
 });
+//Cerrando session de usuario
+Route::get('/logout', function () {
+    Session::forget('user'); //user: llave de la sesion.
+    return redirect('login');
+});
 
 Route::post("/login", [UserController::class, 'login']);
 Route::get("/", [ProductController::class, 'index']);
