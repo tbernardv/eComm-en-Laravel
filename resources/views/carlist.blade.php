@@ -5,6 +5,7 @@
         <div class="col-sm-10">
             <div class="trending-wrapper mt-5 pt-3">
                 <h4 class="">Result for Products</h4>
+                <a href="ordernow" class="btn btn-success">Order now</a>
                 @foreach($products as $item)
                     <div class="row searched-item mt-4 car-list-divider">
                         <div class="col-sm-4">
@@ -21,6 +22,7 @@
                         </div>
                     </div>
                 @endforeach
+                <a href="ordernow" class="btn btn-success">Order now</a>
             </div>
         </div>
     </div><!-- end row -->

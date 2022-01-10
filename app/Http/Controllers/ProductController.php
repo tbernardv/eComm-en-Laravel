@@ -64,7 +64,6 @@ class ProductController extends Controller
 
     //Cart listing
     function carList(){
-        //echo "Hello! GOD BLESS!!!";
         $userId = Session::get('user')['id'];
 
         $products_list = DB::table('cart')
@@ -80,5 +79,17 @@ class ProductController extends Controller
     function removeCartItem($id){
         Cart::destroy($id);
         return redirect('/carlist');
+    }
+
+    //Ordenar ahora
+    function orderNow(){
+        $userId = Session::get('user')['id'];
+
+        $total = $products_list = DB::table('cart')
+        ->join('products','cart.product_id','=', 'products.id')
+        ->where('cart.user_id', $userId)
+        ->sum('products.price');
+
+        return view('ordernow', ['total' => $total]);
     }
 }
