@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 //Importamos los modelos asociados al controlador producto
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 //Importando Session
 use Session;
 //Importando libreria DB
@@ -91,5 +92,28 @@ class ProductController extends Controller
         ->sum('products.price');
 
         return view('ordernow', ['total' => $total]);
+    }
+
+    //Order Place
+    function orderPlace(Request $req){
+        $userId = Session::get('user')['id'];
+
+        $allCart = Cart::where('user_id', $userId)->get();
+        foreach ($allCart as $cart) {
+            //Registrando la orden de venta en la tabla ordenes
+            $order = new Order;
+            $order->product_id = $cart['product_id'];
+            $order->user_id = $cart['user_id'];
+            $order->status = "pending";
+            $order->payment_method = $req->paymentmethod;
+            $order->payment_status = "pending";
+            $order->address = $req->txtareaaddress;
+            $order->save();
+
+            //Eliminando los datos del carrito después de registrar la orden de venta
+            Cart::where('user_id', $userId)->delete();
+        }
+        //return $req->input();
+        return redirect("/");
     }
 }
