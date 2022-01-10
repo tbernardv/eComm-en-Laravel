@@ -30,9 +30,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="rpaymentmethod" class="form-label"><b>Payment method</b></label>
-                        <p><input type="radio" name="paymentmethod"> <span>Online payment</span></p>
-                        <p><input type="radio" name="paymentmethod"> <span>EMI payment</span></p>
-                        <p><input type="radio" name="paymentmethod"> <span>Delivery payment</span></p>
+                        <p><input type="radio" name="paymentmethod"> <span>&nbsp;Online payment</span></p>
+                        <p><input type="radio" name="paymentmethod"> <span>&nbsp;EMI payment</span></p>
+                        <p><input type="radio" name="paymentmethod"> <span>&nbsp;Delivery payment</span></p>
                     </div>
                     <button type="submit" class="btn btn-primary">Order now</button>
                 </form>
