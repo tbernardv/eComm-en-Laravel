@@ -17,7 +17,7 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="/myorders">Orders</a>
                 </li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 pt-2">

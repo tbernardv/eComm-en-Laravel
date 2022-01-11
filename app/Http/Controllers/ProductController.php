@@ -116,4 +116,16 @@ class ProductController extends Controller
         //return $req->input();
         return redirect("/");
     }
+
+    //Mis ordenes de compra
+    function myOrders(){
+        $userId = Session::get('user')['id'];
+
+        $orders = $products_list = DB::table('orders')
+        ->join('products','orders.product_id','=', 'products.id')
+        ->where('orders.user_id', $userId)
+        ->get();
+
+        return view('myorders', ['orders' => $orders]);
+    }
 }
