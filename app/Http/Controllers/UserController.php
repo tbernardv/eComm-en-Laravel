@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //
-    //Creamos funciones y/o metodos
+    # Creamos funciones y/o metodos
+    //Login de usuario
     function login(Request $req){
         $user = User::where(['email' => $req->txtemail])->first();
         //Verificando que el usuario y contraseña esten en la base de datos
@@ -23,5 +23,17 @@ class UserController extends Controller
             //Redirercciona a la pagina inicial home
             return redirect('/');
         }
+    }
+
+    //Registro de usuario
+    function register(Request $req){
+        //return $req->input();
+        $user = new User;
+        $user->name = $req->txtusername;
+        $user->email = $req->txtemail;
+        $user->password = Hash::make($req->txtpassword);
+        $user->save();
+
+        return redirect('/login');
     }
 }

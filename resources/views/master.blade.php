@@ -47,7 +47,7 @@
         max-height: 200px;
     }
     .search-box{
-        width:600px;
+        width:400px;
     }
     .car-list-divider{
         border-bottom: 1px solid #ccc;

@@ -22,11 +22,16 @@ Route::get('/login', function () {
 });
 //Cerrando session de usuario
 Route::get('/logout', function () {
+    # Elimino sesion
     Session::forget('user'); //user: llave de la sesion.
     return redirect('login');
 });
+//Registro de usuario
+Route::view('/register', 'register');
 
 Route::post("/login", [UserController::class, 'login']);
+Route::post("/register", [UserController::class, 'register']);
+
 Route::get("/", [ProductController::class, 'index']);
 Route::get("/detail/{id}", [ProductController::class, 'detail']);
 Route::post("/search", [ProductController::class, 'search']);
